@@ -6,12 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GeekShopping.ProductAPI.Repository
 {
-    public class ProdutRepository : IProdutRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly MySQLContext _context;
         private readonly IMapper _mapper;
 
-        public ProdutRepository(MySQLContext context, IMapper mapper)
+        public ProductRepository(MySQLContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -31,7 +31,7 @@ namespace GeekShopping.ProductAPI.Repository
             try
             {
                 Product? product = await _context.Products.Where(p => p.Id == id).FirstOrDefaultAsync();
-                if(product == null) return false;
+                if (product == null) return false;
 
                 _context.Products.Remove(product);
                 await _context.SaveChangesAsync();

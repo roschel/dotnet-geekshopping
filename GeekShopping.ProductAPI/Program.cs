@@ -18,9 +18,9 @@ builder.Services.AddDbContext<MySQLContext>(options => options.UseMySql(
 
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());   
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddScoped<IProdutRepository, ProdutRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
